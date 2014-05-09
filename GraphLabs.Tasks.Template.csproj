@@ -156,6 +156,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Configuration\MockedWcfServicesConfigurator.cs" />
     <Compile Include="TaskTemplateViewModel.ToolBarCommands.cs" />
     <Compile Include="TaskTemplate.xaml.cs">
       <DependentUpon>TaskTemplate.xaml</DependentUpon>

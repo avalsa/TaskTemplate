@@ -1,8 +1,7 @@
-﻿<Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-             x:Class="GraphLabs.Tasks.Template.App"
-             >
-    <Application.Resources>
-        
-    </Application.Resources>
-</Application>
+﻿<commonUi:TaskApplicationBase 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"         
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:commonUi="clr-namespace:GraphLabs.CommonUI;assembly=GraphLabs.CommonUI"
+    x:Class="GraphLabs.Tasks.Template.App">
+    
+</commonUi:TaskApplicationBase>
