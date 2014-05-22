@@ -3,11 +3,11 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
 using GraphLabs.Common;
+using GraphLabs.Common.Utils;
 using GraphLabs.CommonUI;
 using GraphLabs.CommonUI.Controls.ViewModels;
 using GraphLabs.Graphs;
 using GraphLabs.Graphs.DataTransferObjects.Converters;
-using GraphLabs.Utils;
 
 namespace GraphLabs.Tasks.Template
 {

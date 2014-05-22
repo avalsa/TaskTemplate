@@ -111,6 +111,9 @@
     <Reference Include="GraphLabs.Common">
       <HintPath>externals\GraphLabs.Core\GraphLabs.Common.dll</HintPath>
     </Reference>
+    <Reference Include="GraphLabs.Common.Utils">
+      <HintPath>externals\GraphLabs.Core\GraphLabs.Common.Utils.dll</HintPath>
+    </Reference>
     <Reference Include="GraphLabs.CommonUI">
       <HintPath>externals\GraphLabs.Core\GraphLabs.CommonUI.dll</HintPath>
     </Reference>
