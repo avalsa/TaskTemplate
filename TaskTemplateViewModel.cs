@@ -112,7 +112,7 @@ namespace GraphLabs.Tasks.Template
 
         private void SubscribeToViewEvents()
         {
-            View.VertexClicked += (sender, args) => OnVertexClick(args.Vertex);
+            View.VertexClicked += (sender, args) => OnVertexClick(args.Control);
             View.Loaded += (sender, args) => StartVariantDownload();
         }
 
