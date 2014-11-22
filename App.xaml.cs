@@ -23,6 +23,9 @@ namespace GraphLabs.Tasks.Template
         {
             return Current.IsRunningOutOfBrowser 
                 ? (IDependencyResolverConfigurator)new MockedWcfServicesConfigurator()
+                                                   {
+                                                       GettingVariantDelay = 500
+                                                   }
                 : (IDependencyResolverConfigurator)new WcfServicesConfigurator();
         }
 

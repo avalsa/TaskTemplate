@@ -131,7 +131,10 @@ namespace GraphLabs.Tasks.Template
         private void HandlePropertyChanged(PropertyChangedEventArgs args)
         {
             if (args.PropertyName == ExpressionUtility.NameForMember((IUiBlockerAsyncProcessor p) => p.IsBusy))
-                RecalculateIsLoadingData();
+            {
+                // Нас могли дёрнуть из другого потока, поэтому доступ к UI - через Dispatcher.
+                Dispatcher.BeginInvoke(RecalculateIsLoadingData);
+            }
         }
 
         private void RecalculateIsLoadingData()
@@ -143,7 +146,8 @@ namespace GraphLabs.Tasks.Template
         /// <param name="e"></param>
         protected override void OnTaskLoadingComlete(VariantDownloadedEventArgs e)
         {
-            GivenGraph = GraphSerializer.Deserialize(e.Data);
+            // Мы вызваны из другого потока. Поэтому работаем с UI-элементами через Dispatcher.
+            Dispatcher.BeginInvoke(() => { GivenGraph = GraphSerializer.Deserialize(e.Data); });
 
             //var number = e.Number; -- м.б. тоже где-то показать надо
             //var version = e.Version;
