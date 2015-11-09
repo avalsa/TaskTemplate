@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphLabs.Tasks.Template", "GraphLabs.Tasks.Template.csproj", "{839F3DEB-C0D6-4A8D-81CA-6256D9265BA6}"
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphLabs.Tasks.Template", "GraphLabs.Tasks.Template\GraphLabs.Tasks.Template.csproj", "{839F3DEB-C0D6-4A8D-81CA-6256D9265BA6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BC968627-8B0C-431E-8BAA-32E93AC3D9CA}"
 	ProjectSection(SolutionItems) = preProject
@@ -10,16 +12,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BC9686
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugVariantDataGenerator", "DebugVariantDataGenerator\DebugVariantDataGenerator.csproj", "{9E526D65-C464-4087-91F1-D4D4C86E3E97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		DebugWithSite|Any CPU = DebugWithSite|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{839F3DEB-C0D6-4A8D-81CA-6256D9265BA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{839F3DEB-C0D6-4A8D-81CA-6256D9265BA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{839F3DEB-C0D6-4A8D-81CA-6256D9265BA6}.DebugWithSite|Any CPU.ActiveCfg = DebugWithSite|Any CPU
+		{839F3DEB-C0D6-4A8D-81CA-6256D9265BA6}.DebugWithSite|Any CPU.Build.0 = DebugWithSite|Any CPU
 		{839F3DEB-C0D6-4A8D-81CA-6256D9265BA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{839F3DEB-C0D6-4A8D-81CA-6256D9265BA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E526D65-C464-4087-91F1-D4D4C86E3E97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E526D65-C464-4087-91F1-D4D4C86E3E97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E526D65-C464-4087-91F1-D4D4C86E3E97}.DebugWithSite|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E526D65-C464-4087-91F1-D4D4C86E3E97}.DebugWithSite|Any CPU.Build.0 = Debug|Any CPU
+		{9E526D65-C464-4087-91F1-D4D4C86E3E97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E526D65-C464-4087-91F1-D4D4C86E3E97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

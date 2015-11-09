@@ -101,33 +101,45 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugWithSite|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugWithSite\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT; CONTRACTS_FULL</DefineConstants>
+    <DocumentationFile>Bin\Debug\GraphLabs.Tasks.Template.xml</DocumentationFile>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <NoConfig>true</NoConfig>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac">
-      <HintPath>externals\GraphLabs.Core\Autofac.dll</HintPath>
+      <HintPath>..\externals\GraphLabs.Core\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core">
-      <HintPath>externals\GraphLabs.Core\Castle.Core.dll</HintPath>
+      <HintPath>..\externals\GraphLabs.Core\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="GraphLabs.Common">
-      <HintPath>externals\GraphLabs.Core\GraphLabs.Common.dll</HintPath>
+      <HintPath>..\externals\GraphLabs.Core\GraphLabs.Common.dll</HintPath>
     </Reference>
     <Reference Include="GraphLabs.Common.Utils">
-      <HintPath>externals\GraphLabs.Core\GraphLabs.Common.Utils.dll</HintPath>
+      <HintPath>..\externals\GraphLabs.Core\GraphLabs.Common.Utils.dll</HintPath>
     </Reference>
     <Reference Include="GraphLabs.CommonUI">
-      <HintPath>externals\GraphLabs.Core\GraphLabs.CommonUI.dll</HintPath>
+      <HintPath>..\externals\GraphLabs.Core\GraphLabs.CommonUI.dll</HintPath>
     </Reference>
     <Reference Include="GraphLabs.Graphs">
-      <HintPath>externals\GraphLabs.Core\GraphLabs.Graphs.dll</HintPath>
+      <HintPath>..\externals\GraphLabs.Core\GraphLabs.Graphs.dll</HintPath>
     </Reference>
     <Reference Include="GraphLabs.Graphs.UIComponents">
-      <HintPath>externals\GraphLabs.Core\GraphLabs.Graphs.UIComponents.dll</HintPath>
+      <HintPath>..\externals\GraphLabs.Core\GraphLabs.Graphs.UIComponents.dll</HintPath>
     </Reference>
     <Reference Include="GraphLabs.Utils">
-      <HintPath>externals\GraphLabs.Core\GraphLabs.Utils.dll</HintPath>
+      <HintPath>..\externals\GraphLabs.Core\GraphLabs.Utils.dll</HintPath>
     </Reference>
     <Reference Include="Moq.Silverlight">
-      <HintPath>externals\GraphLabs.Core\Moq.Silverlight.dll</HintPath>
+      <HintPath>..\externals\GraphLabs.Core\Moq.Silverlight.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217" />
@@ -180,10 +192,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\DebugVariantData.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\AssemblyInfo.cs.template" />
     <Resource Include="Images\DontTouch.png" />
+    <Content Include="Properties\LabWorkDebug.htm" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
@@ -197,9 +213,11 @@
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
   -->
+  <UsingTask TaskName="GraphLabs.Utils.MsBuild.TaskDebugUploader" AssemblyFile="..\externals\GraphLabs.Core\GraphLabs.Utils.MsBuild.dll" />
+  <Target Name="AfterBuild">
+    <TaskDebugUploader Condition=" '$(Configuration)' == 'DebugWithSite' " XapPath="$(OutputPath)\$(XapFilename)" VariantDataPath="Properties\DebugVariantData.bin" UploadServiceUri="http://glservice.svtz.ru:8000/DebugTaskUploader/DebugTaskUploader.svc" LabUriFormat="http://glservice.svtz.ru:81/LabWorkExecution/Index?labId={0}&amp;labVarId={1}" OutputPagePath="$(ProjectDir)\Properties\LabWorkDebug.htm" />
+  </Target>
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
@@ -212,7 +230,7 @@
     </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PreBuildEvent>cd "$(SolutionDir)"
+    <PreBuildEvent>cd "$(ProjectDir)"
 SubWCRev "." "Properties\AssemblyInfo.cs.template" "Properties\AssemblyInfo.cs"</PreBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
