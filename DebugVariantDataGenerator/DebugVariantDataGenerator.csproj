@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GraphLabs.Graphs">
-      <HintPath>..\trunk\externals\GraphLabs.Core\GraphLabs.Graphs.dll</HintPath>
+      <HintPath>..\externals\GraphLabs.Core\GraphLabs.Graphs.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
