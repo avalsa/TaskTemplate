@@ -191,14 +191,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\DebugVariantData.bin">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Debug\DebugVariantData.bin" />
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\AssemblyInfo.cs.template" />
     <Resource Include="Images\DontTouch.png" />
-    <None Include="Properties\LabWorkDebug.htm" />
+    <None Include="Debug\LabWorkDebug.htm" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
@@ -215,7 +213,7 @@
   -->
   <UsingTask TaskName="GraphLabs.Utils.MsBuild.TaskDebugUploader" AssemblyFile="..\externals\GraphLabs.Core\GraphLabs.Utils.MsBuild.dll" />
   <Target Name="AfterBuild">
-    <TaskDebugUploader Condition=" '$(Configuration)' == 'DebugWithSite' " XapPath="$(OutputPath)\$(XapFilename)" VariantDataPath="Properties\DebugVariantData.bin" UploadServiceUri="http://glservice.svtz.ru:8000/DebugTaskUploader/DebugTaskUploader.svc" LabUriFormat="http://glservice.svtz.ru:81/LabWorkExecution/Index?labId={0}&amp;labVarId={1}" OutputPagePath="$(ProjectDir)\Properties\LabWorkDebug.htm" />
+    <TaskDebugUploader Condition=" '$(Configuration)' == 'DebugWithSite' " XapPath="$(OutputPath)\$(XapFilename)" VariantDataPath="$(ProjectDir)\Debug\DebugVariantData.bin" UploadServiceUri="http://glservice.svtz.ru:8000/DebugTaskUploader/DebugTaskUploader.svc" LabUriFormat="http://glservice.svtz.ru:81/LabWorkExecution/Index?labId={0}&amp;labVarId={1}" OutputPagePath="$(ProjectDir)\Debug\LabWorkDebug.htm" />
   </Target>
   <ProjectExtensions>
     <VisualStudio>
