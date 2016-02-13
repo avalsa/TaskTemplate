@@ -32,7 +32,7 @@ namespace DebugVariantDataGenerator
 
         static void Main(string[] args)
         {
-            File.WriteAllBytes(@"..\..\..\GraphLabs.Tasks.Template\Properties\DebugVariantData.bin", GetSerializedGraph());
+            File.WriteAllBytes(@"..\..\..\GraphLabs.Tasks.Template\Debug\DebugVariantData.bin", GetSerializedGraph());
         }
     }
 }
