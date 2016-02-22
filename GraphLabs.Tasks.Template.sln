@@ -5,13 +5,6 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphLabs.Tasks.Template", "GraphLabs.Tasks.Template\GraphLabs.Tasks.Template.csproj", "{839F3DEB-C0D6-4A8D-81CA-6256D9265BA6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BC968627-8B0C-431E-8BAA-32E93AC3D9CA}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugVariantDataGenerator", "DebugVariantDataGenerator\DebugVariantDataGenerator.csproj", "{9E526D65-C464-4087-91F1-D4D4C86E3E97}"
 EndProject
 Global

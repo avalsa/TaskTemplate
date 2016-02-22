@@ -8,6 +8,7 @@ namespace GraphLabs.Tasks.Template
     /// <summary> TaskTemplate app </summary>
     public partial class App : TaskApplicationBase
     {
+        /// <summary> Получить конфигураторы сервисов </summary>
         private static IEnumerable<IDependencyResolverConfigurator> GetConfigurators()
         {
             // Wcf-сервисы
@@ -19,6 +20,11 @@ namespace GraphLabs.Tasks.Template
             yield return new CommonItemsConfigurator();
         }
 
+        /// <summary> Получить конфигуратор WCF-сервисов </summary>
+        /// <returns>
+        /// Если приложение запущено в браузере, то честно взаимодействуем с сайтом.
+        /// Если запущено вне бразера - используется специальный эмулятор.
+        /// </returns>
         private static IDependencyResolverConfigurator GetWcfServicesConfigurator()
         {
             return Current.IsRunningOutOfBrowser 

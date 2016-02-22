@@ -9,7 +9,7 @@ namespace GraphLabs.Tasks.Template.Configuration
     public class MockedWcfServicesConfigurator : MockedWcfServicesConfiguratorBase
     {
         /// <summary> Сгенерировать отладочный вариант </summary>
-        protected override TaskVariantInfo GetDebugVariant()
+        protected override TaskVariantDto GetDebugVariant()
         {
             var debugGraph = DirectedGraph.CreateEmpty(7);
             debugGraph.AddEdge(new DirectedEdge(debugGraph.Vertices[0], debugGraph.Vertices[5]));
@@ -24,7 +24,7 @@ namespace GraphLabs.Tasks.Template.Configuration
             debugGraph.AddEdge(new DirectedEdge(debugGraph.Vertices[6], debugGraph.Vertices[4]));
             var serializedGraph = GraphSerializer.Serialize(debugGraph);
 
-            return new TaskVariantInfo
+            return new TaskVariantDto
             {
                 Data = serializedGraph,
                 GeneratorVersion = "1.0",

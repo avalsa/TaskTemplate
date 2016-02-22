@@ -33,8 +33,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GraphLabs.Graphs">
-      <HintPath>..\externals\GraphLabs.Core\GraphLabs.Graphs.dll</HintPath>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GraphLabs.Common.Utils, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GraphLabs.Common.Utils.1.1.1\lib\portable-net45+sl50+win+wpa81+wp80\GraphLabs.Common.Utils.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GraphLabs.Graphs, Version=1.4.1.176, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GraphLabs.Graphs.1.4.1\lib\portable-net45+sl50+win+wp80\GraphLabs.Graphs.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GraphLabs.Utils, Version=1.4.1.176, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GraphLabs.Utils.1.4.1\lib\portable-net45+sl50+win+wp80\GraphLabs.Utils.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GraphLabs.Utils.MsBuild, Version=1.4.1.176, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GraphLabs.Utils.MsBuild.1.4.1\lib\net452\GraphLabs.Utils.MsBuild.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
