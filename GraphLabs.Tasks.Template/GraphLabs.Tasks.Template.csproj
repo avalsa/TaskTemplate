@@ -249,7 +249,7 @@
   <Target Name="BeforeBuild">
   </Target>
   -->
-  <UsingTask TaskName="GraphLabs.Utils.MsBuild.TaskDebugUploader" AssemblyFile="..\packages\GraphLabs.Utils.MsBuild.1.4.1\lib\net452\GraphLabs.Utils.MsBuild.dll" />
+  <UsingTask TaskName="GraphLabs.Utils.MsBuild.TaskDebugUploader" AssemblyFile="..\packages\GraphLabs.Utils.MsBuild.1.4.2\lib\net452\GraphLabs.Utils.MsBuild.dll" />
   <Target Name="AfterBuild">
     <TaskDebugUploader Condition=" '$(Configuration)' == 'DebugWithSite' " XapPath="$(OutputPath)\$(XapFilename)" VariantDataPath="$(ProjectDir)\Debug\DebugVariantData.bin" UploadServiceUri="http://glservice.svtz.ru:8000/DebugTaskUploader/DebugTaskUploader.svc" LabUriFormat="http://glservice.svtz.ru:81/LabWorkExecution/Index?labId={0}&amp;labVarId={1}" OutputPagePath="$(ProjectDir)\Debug\LabWorkDebug.htm" />
   </Target>
