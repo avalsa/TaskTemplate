@@ -52,18 +52,23 @@ namespace GraphLabs.Tasks.Template
                 Description = "НЕ ТРОГАТЬ"
             };
 
-            // Перемещение вершин
-            //var finishTask = new ToolBarInstantCommand(
-            //    () => UserActionsManager.RegisterMistake("Сказали же НЕ ТРОГАТЬ!!!", 1),
-            //    () => _state == State.Nothing
-            //    )
-            //{
-            //    Image = new BitmapImage(GetImageUri("DontTouch.png")),
-            //    Description = "НЕ ТРОГАТЬ"
-            //};
+            // Завершение работы
+            var finishTask = new ToolBarInstantCommand(
+                () =>
+                {
+                    UserActionsManager.ReportThatTaskFinished();
+                    TransferToNextTask();
+                },
+                () => _state == State.Nothing
+                )
+            {
+                Image = new BitmapImage(GetImageUri("Complete.png")),
+                Description = "Завершить задание"
+            };
 
             ToolBarCommands.Add(moveCommand);
             ToolBarCommands.Add(dontTouch);
+            ToolBarCommands.Add(finishTask);
         }
     }
 }
