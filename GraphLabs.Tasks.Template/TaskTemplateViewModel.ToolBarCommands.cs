@@ -52,6 +52,16 @@ namespace GraphLabs.Tasks.Template
                 Description = "НЕ ТРОГАТЬ"
             };
 
+            // Перемещение вершин
+            //var finishTask = new ToolBarInstantCommand(
+            //    () => UserActionsManager.RegisterMistake("Сказали же НЕ ТРОГАТЬ!!!", 1),
+            //    () => _state == State.Nothing
+            //    )
+            //{
+            //    Image = new BitmapImage(GetImageUri("DontTouch.png")),
+            //    Description = "НЕ ТРОГАТЬ"
+            //};
+
             ToolBarCommands.Add(moveCommand);
             ToolBarCommands.Add(dontTouch);
         }
