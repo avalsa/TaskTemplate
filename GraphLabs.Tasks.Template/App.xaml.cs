@@ -32,11 +32,7 @@ namespace GraphLabs.Tasks.Template
                                                    {
                                                        GettingVariantDelay = 500
                                                    }
-                : (IDependencyResolverConfigurator)new WcfServicesConfigurator()
-                {
-                    UserActionsRegistratorAddress = "http://localhost:49202/UserActionsRegistrator.svc",
-                    VariantProviderServiceClientAddress = "http://localhost:49202/VariantProviderService.svc"
-                };
+                : (IDependencyResolverConfigurator)new WcfServicesConfigurator();
         }
 
         /// <summary> TaskTemplate app </summary>
