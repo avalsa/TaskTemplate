@@ -3,6 +3,7 @@ using GraphLabs.CommonUI;
 using GraphLabs.CommonUI.Configuration;
 using GraphLabs.Tasks.Template.Configuration;
 
+
 namespace GraphLabs.Tasks.Template
 {
     /// <summary> TaskTemplate app </summary>

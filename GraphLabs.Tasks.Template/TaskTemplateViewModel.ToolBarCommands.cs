@@ -57,7 +57,6 @@ namespace GraphLabs.Tasks.Template
                 () =>
                 {
                     UserActionsManager.ReportThatTaskFinished();
-                    TransferToNextTask();
                 },
                 () => _state == State.Nothing
                 )
