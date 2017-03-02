@@ -46,7 +46,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>Bin\Debug</OutputPath>
     <DefineConstants>TRACE;DEBUG;SILVERLIGHT; CONTRACTS_FULL</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
@@ -86,7 +86,7 @@
     <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
     <WarningsAsErrors>
     </WarningsAsErrors>
-    <DocumentationFile>bin\Debug\GraphLabs.Tasks.Template.xml</DocumentationFile>
+    <DocumentationFile>Bin\Debug\GraphLabs.Tasks.Template.xml</DocumentationFile>
     <CodeContractsMissingPublicRequiresAsWarnings>True</CodeContractsMissingPublicRequiresAsWarnings>
     <CodeContractsSQLServerOption />
     <CodeContractsFailBuildOnWarnings>False</CodeContractsFailBuildOnWarnings>
@@ -210,6 +210,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Configuration\MockedWcfServicesConfigurator.cs" />
+    <Compile Include="Properties\AssemblyVersion.cs" />
     <Compile Include="TaskTemplateViewModel.ToolBarCommands.cs" />
     <Compile Include="TaskTemplate.xaml.cs">
       <DependentUpon>TaskTemplate.xaml</DependentUpon>
@@ -235,12 +236,14 @@
     <Resource Include="Images\DontTouch.png" />
     <None Include="Debug\LabWorkDebug.htm" />
     <Resource Include="Images\Complete.png" />
+    <Content Include="Properties\version.txt" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Move.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\generateVersionInfo.ps1" />
     <None Include="Properties\OutOfBrowserSettings.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
@@ -265,7 +268,8 @@
     </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PreBuildEvent>
+    <PreBuildEvent>cd "$(ProjectDir)"
+powershell -noexit "&amp; ""$(ProjectDir)\Properties\generateVersionInfo.ps1"""
     </PreBuildEvent>
   </PropertyGroup>
 </Project>

@@ -8,9 +8,3 @@
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-
-#if DEBUG
-[assembly: AssemblyVersion("1.0.0.*")]
-#else
-[assembly: AssemblyVersion("1.0.0")]
-#endif
