@@ -1,11 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphLabs.Tasks.Template", "GraphLabs.Tasks.Template\GraphLabs.Tasks.Template.csproj", "{839F3DEB-C0D6-4A8D-81CA-6256D9265BA6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugVariantDataGenerator", "DebugVariantDataGenerator\DebugVariantDataGenerator.csproj", "{9E526D65-C464-4087-91F1-D4D4C86E3E97}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{67D0B4E6-FBFA-4FE1-BE22-1C13D798168B}"
+	ProjectSection(SolutionItems) = preProject
+		AssemblyVersion.cs = AssemblyVersion.cs
+		generateVersionInfo.ps1 = generateVersionInfo.ps1
+		version.txt = version.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -46,4 +46,4 @@ using System.Reflection;
 #endif
 "@
 
-Set-Content -Path "Properties\AssemblyVersion.cs" -Value $versionInfo
+Set-Content -Path "AssemblyVersion.cs" -Value $versionInfo

@@ -206,11 +206,13 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\AssemblyVersion.cs">
+      <Link>Properties\AssemblyVersion.cs</Link>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Configuration\MockedWcfServicesConfigurator.cs" />
-    <Compile Include="Properties\AssemblyVersion.cs" />
     <Compile Include="TaskTemplateViewModel.ToolBarCommands.cs" />
     <Compile Include="TaskTemplate.xaml.cs">
       <DependentUpon>TaskTemplate.xaml</DependentUpon>
@@ -236,14 +238,12 @@
     <Resource Include="Images\DontTouch.png" />
     <None Include="Debug\LabWorkDebug.htm" />
     <Resource Include="Images\Complete.png" />
-    <Content Include="Properties\version.txt" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Move.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\generateVersionInfo.ps1" />
     <None Include="Properties\OutOfBrowserSettings.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
@@ -268,8 +268,8 @@
     </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PreBuildEvent>cd "$(ProjectDir)"
-powershell -noexit "&amp; ""$(ProjectDir)\Properties\generateVersionInfo.ps1"""
+    <PreBuildEvent>cd "$(SolutionDir)"
+powershell "&amp; ""$(SolutionDir)\generateVersionInfo.ps1"""
     </PreBuildEvent>
   </PropertyGroup>
 </Project>
