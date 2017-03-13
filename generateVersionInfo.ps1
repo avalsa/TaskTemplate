@@ -11,7 +11,7 @@ $currentBranch = git rev-parse --abbrev-ref HEAD
 $commitsCount = git rev-list --count HEAD
 
 if (!$hasChanges -and ($currentBranch -eq "master")) {
-    $versionString = Get-Content ".\Properties\version.txt"
+    $versionString = Get-Content "version.txt"
     $versionSegments = $versionString.Split("{.}")
     if ($versionSegments.Length -ne 2)
     {
