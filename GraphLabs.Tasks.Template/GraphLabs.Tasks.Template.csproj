@@ -235,9 +235,10 @@
     <None Include="Debug\DebugVariantData.bin" />
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
-    <Resource Include="Images\DontTouch.png" />
     <None Include="Debug\LabWorkDebug.htm" />
     <Resource Include="Images\Complete.png" />
+    <Resource Include="Images\Add.png" />
+    <Resource Include="Images\Mark.png" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>

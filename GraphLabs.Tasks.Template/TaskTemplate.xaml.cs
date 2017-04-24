@@ -16,7 +16,13 @@ namespace GraphLabs.Tasks.Template
         /// <summary> Клик по вершине </summary>
         public event EventHandler<VertexClickEventArgs> VertexClicked;
 
-        private void OnVertexClicked(VertexClickEventArgs e)
+        /// <summary>
+        /// Клик по вершине дерева
+        /// </summary>
+        public event EventHandler<VertexClickEventArgs> VertexClickedTree;
+
+
+        private void OnVertexClick(object sender, VertexClickEventArgs e)
         {
             var handler = VertexClicked;
             if (handler != null)
@@ -25,9 +31,18 @@ namespace GraphLabs.Tasks.Template
             }
         }
 
-        private void OnVertexClick(object sender, VertexClickEventArgs e)
+        private void Visualizer_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            OnVertexClicked(e);
+
+        }
+
+        private void Visualizer_Tree_OnVertexClick(object sender, VertexClickEventArgs e)
+        {
+            var handler = VertexClickedTree;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
         }
     }
 }

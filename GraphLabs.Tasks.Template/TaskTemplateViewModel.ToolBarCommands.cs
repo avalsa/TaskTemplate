@@ -7,6 +7,11 @@ using GraphLabs.Utils;
 
 namespace GraphLabs.Tasks.Template
 {
+
+
+
+
+
     public partial class TaskTemplateViewModel
     {
         private const string ImageResourcesPath = @"/GraphLabs.Tasks.Template;component/Images/";
@@ -20,7 +25,7 @@ namespace GraphLabs.Tasks.Template
         {
             ToolBarCommands = new ObservableCollection<ToolBarCommandBase>();
 
-            // Перемещение вершин - toogleCommand
+            // Перемещение вершин
             var moveCommand = new ToolBarToggleCommand(
                 () =>
                 {
@@ -42,14 +47,44 @@ namespace GraphLabs.Tasks.Template
                 Description = "Перемещение вершин"
             };
 
-            // Перемещение вершин
-            var dontTouch = new ToolBarInstantCommand(
-                () => UserActionsManager.RegisterMistake("Сказали же НЕ ТРОГАТЬ!!!", 1),
-                () => _state == State.Nothing
-                )
+            // помечание вершин дерева
+            var markVertex = new ToolBarToggleCommand(
+               () =>
+               {
+                   _state = State.MarkVertex;
+                   UserActionsManager.RegisterInfo("Включено помечание вершины для создание подуровня.");
+               },
+               () =>
+               {
+                   _state = State.Nothing;
+                   UserActionsManager.RegisterInfo("Отключено помечание вершины для создание подуровня.");
+               },
+               () => _state == State.Nothing,
+               () => true
+               )
             {
-                Image = new BitmapImage(GetImageUri("DontTouch.png")),
-                Description = "НЕ ТРОГАТЬ"
+                Image = new BitmapImage(GetImageUri("Mark.png")),
+                Description = "Помечание вершины дерева"
+            };
+
+            // добаление вершин графа в поддерво помечанной вершины 
+            var addVertex = new ToolBarToggleCommand(
+               () =>
+               {
+                   _state = State.AddVertex;
+                   UserActionsManager.RegisterInfo("Включено добавление вершин в подуровень.");
+               },
+               () =>
+               {
+                   _state = State.Nothing;
+                   UserActionsManager.RegisterInfo("Отключено добавление вершин в подуровень.");
+               },
+               () => _state == State.Nothing,
+               () => true
+               )
+            {
+                Image = new BitmapImage(GetImageUri("Add.png")),
+                Description = "Добавление вершин в поддерево помечанной вершины"
             };
 
             // Завершение работы
@@ -66,7 +101,8 @@ namespace GraphLabs.Tasks.Template
             };
 
             ToolBarCommands.Add(moveCommand);
-            ToolBarCommands.Add(dontTouch);
+            ToolBarCommands.Add(addVertex);
+            ToolBarCommands.Add(markVertex);
             ToolBarCommands.Add(finishTask);
         }
     }

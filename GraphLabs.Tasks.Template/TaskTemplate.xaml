@@ -16,13 +16,13 @@
              d:DesignWidth="785"
              MinWidth="800" 
              MinHeight="400">
-    
+
     <UserControl.Resources>
         <ResourceDictionary>
             <converters:BooleanToNegativeConverter x:Key="NegateConverter"/>
         </ResourceDictionary>
     </UserControl.Resources>
-    
+
     <toolkit:BusyIndicator x:Name="BusyIndicator" 
                            IsBusy="{Binding IsLoadingData}" 
                            BusyContent="Пожалуйста, подождите...">
@@ -41,7 +41,7 @@
                 <RowDefinition Height="60" />
                 <RowDefinition Height="5" />
             </Grid.RowDefinitions>
-            
+
             <Border BorderThickness="5" 
                     Name="LeftMainBorder" 
                     Grid.Column="0" 
@@ -57,7 +57,7 @@
                     </LinearGradientBrush>
                 </Border.BorderBrush>
             </Border>
-            
+
             <!-- Панель инструментов -->
             <controls1:ToolBar Name="ToolBar"
                               Grid.Column="1"
@@ -81,12 +81,25 @@
                                            ElementName=BusyIndicator, 
                                            Converter={StaticResource NegateConverter}}"
                                        MinHeight="100"
-                                       MinWidth="100"/>
+                                       MinWidth="100" Margin="0,0,308,0" Loaded="Visualizer_Loaded"/>         
 
+          <visualization1:GraphVisualizer x:Name="Visualizer_Tree" 
+                Grid.Column="2" 
+                Grid.Row="1"
+                Background="{Binding Background, ElementName=LayoutRoot}"
+                IsMouseVerticesMovingEnabled="{Binding IsMouseVerticesMovingEnabled}"
+                VisualizationAlgorithm="Circle"
+                Graph="{Binding Tree}"
+                VertexClick="Visualizer_Tree_OnVertexClick"
+                DefaultVertexRadius="20"
+                IsAnimationSuspended="{Binding IsBusy, Converter={StaticResource NegateConverter}, ElementName=BusyIndicator}"
+                MinHeight="100"
+                MinWidth="100" Margin="427,0,0,0" Loaded="Visualizer_Loaded" Grid.ColumnSpan="2"/>
             <controls1:InformationBar ScoreColumnWidth="60" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2"
                                       DataContext="{Binding UserActionsManager}">
-                
+
             </controls1:InformationBar>
+            
         </Grid>
     </toolkit:BusyIndicator>
 </commonUi:TaskViewBase>
