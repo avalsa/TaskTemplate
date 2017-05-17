@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Windows.Media.Imaging;
 using GraphLabs.CommonUI.Controls.ViewModels;
-using GraphLabs.Utils;
+
 
 namespace GraphLabs.Tasks.Template
 {
-
-
-
-
-
     public partial class TaskTemplateViewModel
     {
         private const string ImageResourcesPath = @"/GraphLabs.Tasks.Template;component/Images/";
@@ -56,6 +50,7 @@ namespace GraphLabs.Tasks.Template
                },
                () =>
                {
+                   //SetGraphStdColors();
                    _state = State.Nothing;
                    UserActionsManager.RegisterInfo("Отключено помечание вершины для создание подуровня.");
                },
@@ -76,6 +71,7 @@ namespace GraphLabs.Tasks.Template
                },
                () =>
                {
+                   SetGraphStdColors();
                    _state = State.Nothing;
                    UserActionsManager.RegisterInfo("Отключено добавление вершин в подуровень.");
                },
